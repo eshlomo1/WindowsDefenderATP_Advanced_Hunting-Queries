@@ -1,6 +1,6 @@
 // Shows network communication from endpoints to a specific Remote IP or specific Remote URL
 NetworkCommunicationEvents
 | where EventTime > ago(10d)
-| where RemoteIP == "172.217.22.110" 
-// RemoteUrl == "google.com"
+| where RemoteIP == "162.241.216.191" 
+// RemoteUrl == "eshlomo.us"
 | project EventTime, ComputerName, ActionType, RemoteIP, RemoteUrl, InitiatingProcessFileName, InitiatingProcessCommandLine
