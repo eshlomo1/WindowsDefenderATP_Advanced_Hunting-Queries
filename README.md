@@ -1,2 +1,2 @@
-# WindowsDefenderATP_Advanced_Hunting-Samples-Queries
+# WindowsDefenderATP_Advanced_Hunting_Samples_Queries
 Windows Defender ATP Advanced Hunting Samples and Queries
