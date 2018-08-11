@@ -1,0 +1,10 @@
+// Shows a full perspective on the files that got created and executed
+FileCreationEvents
+| where EventTime > ago(15d)
+| project MachineId, FileName, SHA1, FolderPath
+| join kind= inner (
+	ProcessCreationEvents
+	| where EventTime > ago(15d)
+	| project MachineId, FileName, SHA1, FolderPath
+) on MachineId, SHA1, FolderPath, FileName
+| limit 25
