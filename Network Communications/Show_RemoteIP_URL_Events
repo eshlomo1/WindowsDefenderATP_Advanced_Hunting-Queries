@@ -1,0 +1,4 @@
+// Shows network communication to an IP or URL for SmartScreen, launch browser with URL.
+find in (MiscEvents, NetworkCommunicationEvents)
+where RemoteIP == "162.241.216.191" or RemoteUrl =~ "eshlomo.us"
+project ComputerName, ActionType, FileName, EventTime
