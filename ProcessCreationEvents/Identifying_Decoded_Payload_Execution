@@ -1,0 +1,8 @@
+// Identifying Base64 decoded payload execution
+ProcessCreationEvents 
+| where EventTime > ago(14d) 
+| where ProcessCommandLine contains ".decode('base64')"
+        or ProcessCommandLine contains "base64 --decode"
+        or ProcessCommandLine contains ".decode64(" 
+| project EventTime , ComputerName , FileName , FolderPath , ProcessCommandLine , InitiatingProcessCommandLine 
+| top 100 by EventTime  
