@@ -1,0 +1,6 @@
+// Shows network communication from endpoints through a specific file to an Remote IP or specific Remote URL
+NetworkCommunicationEvents
+| where EventTime > ago(30d)
+| where (RemoteIP == "162.241.216.191" or RemoteUrl contains "eshlomo.us")
+and InitiatingProcessFileName =~ "filename.exe"
+| project EventTime, ComputerName, ActionType, RemoteIP, RemoteUrl, InitiatingProcessFileName, InitiatingProcessCommandLine
