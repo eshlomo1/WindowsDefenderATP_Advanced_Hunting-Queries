@@ -1,0 +1,5 @@
+//The following query find processes that access more than 10 IP addresses over port 445 (SMB).
+NetworkCommunicationEvents
+| where RemotePort == 445 and EventTime > ago(12h) and InitiatingProcessId !in (0, 4)
+| summarize RemoteIPCount=dcount(RemoteIP) by ComputerName, InitiatingProcessId, InitiatingProcessCreationTime, InitiatingProcessFileName
+| where RemoteIPCount > 10
