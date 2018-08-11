@@ -1,0 +1,6 @@
+// Shows where PowerShell or CMD was executed 
+ProcessCreationEvents
+| where FileName == "powershell.exe"
+or FileName == "cmd.exe"
+| limit 15
+| project EventTime, ComputerName, ProcessCommandLine
